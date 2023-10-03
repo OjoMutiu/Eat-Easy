@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../constants/app_dimensions.dart';
+import '../../../constants/app_dimensions.dart';
 
 class PageBanner extends StatefulWidget {
   const PageBanner({super.key, required this.pageController});

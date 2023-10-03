@@ -1,5 +1,5 @@
 import 'package:eat_easy/constants/themes/app_theme.dart';
-import 'package:eat_easy/pages/home_page/my_home_page.dart';
+import 'package:eat_easy/pages/my_main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.light,
       theme: AppTheme.lightTheme,
-      home: const MyHomePage(),
+      home: const MyMainPage(),
     );
   }
 }

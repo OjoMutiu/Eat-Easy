@@ -1,14 +1,24 @@
 import 'package:eat_easy/constants/app_colors.dart';
-import 'package:eat_easy/constants/app_dimensions.dart';
 import 'package:flutter/material.dart';
 
 class AppTheme {
   AppTheme._();
 
   static ThemeData lightTheme = ThemeData(
-    colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary50),
-    useMaterial3: true,
-    textTheme: lightTextTheme,
+      colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary50),
+      useMaterial3: true,
+      textTheme: lightTextTheme,
+      inputDecorationTheme: inputDecorationTheme);
+
+  static InputDecorationTheme inputDecorationTheme = InputDecorationTheme(
+    enabledBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(6),
+      borderSide: const BorderSide(width: 1, color: AppColors.neutral),
+    ),
+    focusedBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(6),
+      borderSide: const BorderSide(width: 1, color: AppColors.primary30),
+    ),
   );
 
   static TextTheme lightTextTheme = const TextTheme(

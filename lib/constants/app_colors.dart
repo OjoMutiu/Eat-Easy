@@ -24,4 +24,6 @@ class AppColors {
 
   ///Neutral color
   static const Color neutral = Color(0xFFB3B3B3);
+
+  static const Color tagColorNeutral = Color(0xFFF3F1F1);
 }
