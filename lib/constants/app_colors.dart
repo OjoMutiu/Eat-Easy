@@ -26,4 +26,7 @@ class AppColors {
   static const Color neutral = Color(0xFFB3B3B3);
 
   static const Color tagColorNeutral = Color(0xFFF3F1F1);
+
+  //Icon colors
+  static const Color iconColorYellow = Color(0xFFF0C324);
 }

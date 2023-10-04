@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
-import '../constants/app_colors.dart';
-import '../constants/app_dimensions.dart';
+import '../../../constants/app_colors.dart';
+import '../../../constants/app_dimensions.dart';
 
-class ProductCard extends StatelessWidget {
-  const ProductCard({
+class PackageCard extends StatelessWidget {
+  const PackageCard({
     super.key,
     required this.image,
-    required this.productPackage,
+    required this.package,
     required this.description,
     this.rating,
     required this.price,
   });
 
-  final String image, productPackage, description;
+  final String image, package, description;
   final double? rating;
   final double price;
 
@@ -63,7 +63,8 @@ class ProductCard extends StatelessWidget {
                                   )),
                               child: Row(
                                 children: [
-                                  Icon(Icons.star, color: Color(0xFFF0C324)),
+                                  Icon(Icons.star,
+                                      color: AppColors.iconColorYellow),
                                   SizedBox(width: AppDimension.width8 / 2),
                                   Text(
                                     rating.toString(),
@@ -103,7 +104,7 @@ class ProductCard extends StatelessWidget {
               direction: Axis.vertical,
               children: [
                 Text(
-                  productPackage,
+                  package,
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                       fontSize: AppDimension.height16,
                       fontWeight: FontWeight.w500),

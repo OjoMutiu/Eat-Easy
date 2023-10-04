@@ -1,14 +1,52 @@
-class ProductModel {
-  final String productPackage, description, image;
-  final double? rating;
-  final double price;
+import 'package:eat_easy/models/table_model.dart';
 
-  ProductModel(
-      {required this.productPackage,
-      required this.description,
-      required this.image,
-      required this.price,
-      this.rating});
+import 'food_model.dart';
+
+class PackageModel {
+  late String _package, _description, _image;
+  late double? _rating;
+  late double _price;
+  late List<FoodModel>? _food;
+  TableModel? _table;
+
+  ///Constructor
+  PackageModel({
+    required String package,
+    required description,
+    required image,
+    required price,
+    rating,
+    table,
+    food,
+  }) {
+    _package = package;
+    _description = description;
+    _image = image;
+    _rating = rating;
+    _price = price;
+    _food = food;
+    _table = table;
+  }
+
+  ///getters
+  String get package => _package;
+  String get description => _description;
+  get image => _image;
+  get rating => _rating;
+  get price => _price;
+  List<FoodModel> get food => _food!;
+  TableModel get table => _table!;
+
+  ///setters
+  set table(TableModel value) {
+    _table = value;
+  }
+
+  set rating(var value) {
+    _rating = value;
+  }
+
+  //Other Methods
 }
 
 //Demo Data
@@ -18,7 +56,8 @@ List<Map<String, dynamic>> recommendation = [
     "rating": 4.7,
     "package": "Family Package",
     "description": "1 large table 6 chairs",
-    "price": 260.0
+    "price": 260.0,
+    "food": food,
   },
   {
     "image": "assets/images/recommend2.jpg",

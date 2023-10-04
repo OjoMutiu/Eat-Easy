@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 
 import '../../constants/app_colors.dart';
 import '../../constants/app_dimensions.dart';
-import '../../models/product_model.dart';
-import '../../widgets/product_card.dart';
+import '../../models/package_model.dart';
+import 'widgets/product_card.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -148,9 +148,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 scrollDirection: Axis.horizontal,
                 itemCount: recommendation.length,
                 itemBuilder: (context, index) {
-                  return ProductCard(
+                  return PackageCard(
                     image: recommendation[index]["image"],
-                    productPackage: recommendation[index]["package"],
+                    package: recommendation[index]["package"],
                     description: recommendation[index]["description"],
                     price: recommendation[index]["price"],
                     rating: recommendation[index]["rating"],

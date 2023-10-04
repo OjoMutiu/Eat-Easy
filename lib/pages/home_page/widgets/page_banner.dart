@@ -53,7 +53,7 @@ class Banner1 extends StatelessWidget {
               borderRadius: BorderRadius.circular(AppDimension.height6),
               image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: AssetImage('assets/images/food1.jpg'))),
+                  image: AssetImage('assets/images/banner_food1.jpg'))),
         ),
         Positioned(
           top: AppDimension.height10 * 1.5,
@@ -93,7 +93,7 @@ class Banner2 extends StatelessWidget {
               borderRadius: BorderRadius.circular(AppDimension.height6),
               image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: AssetImage('assets/images/food2.jpg'))),
+                  image: AssetImage('assets/images/banner_food2.jpg'))),
         ),
         Positioned(
           left: AppDimension.getProportionalScreenWidth(76),
@@ -131,7 +131,7 @@ class Banner3 extends StatelessWidget {
               borderRadius: BorderRadius.circular(AppDimension.height6),
               image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: AssetImage('assets/images/food3.jpg'))),
+                  image: AssetImage('assets/images/banner_food3.jpg'))),
         ),
         Positioned(
             right: -70,
