@@ -41,7 +41,7 @@ List<Map<String, dynamic>> foods = [
     "id": 2,
     "food": "Noodle Ex",
     "image": "assets/images/noodles.jpg",
-    "price": 42,
+    "price": 42.0,
     "rating": 4.8
   },
   {
@@ -62,14 +62,14 @@ List<Map<String, dynamic>> foods = [
     "id": 5,
     "food": "Fried Rice Uenak",
     "image": "assets/images/fried_rice.jpg",
-    "price": 34,
+    "price": 34.2,
     "rating": 4.6
   },
   {
     "id": 6,
     "food": "Chocolate Cream",
     "image": "assets/images/chocolate_cream.jpg",
-    "price": 23,
+    "price": 23.4,
     "rating": 4.7
   },
 ];
