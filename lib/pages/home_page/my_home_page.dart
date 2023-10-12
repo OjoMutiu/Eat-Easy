@@ -3,11 +3,12 @@ import 'package:eat_easy/pages/home_page/widgets/dots.dart';
 import 'package:eat_easy/pages/home_page/widgets/main_page_menu_tags.dart';
 import 'package:eat_easy/pages/home_page/widgets/page_banner.dart';
 import 'package:eat_easy/widgets/section_header.dart';
+import 'package:eat_easy/widgets/title_1_text.dart';
 import 'package:flutter/material.dart';
 
-import '../../constants/app_colors.dart';
 import '../../constants/app_dimensions.dart';
 import '../../models/package_model.dart';
+import '../../widgets/shopping_cart.dart';
 import 'widgets/product_card.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -63,12 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Hi, Mutiu',
-                        style:
-                            Theme.of(context).textTheme.headlineLarge?.copyWith(
-                                  fontSize: AppDimension.height24,
-                                  fontWeight: FontWeight.w600,
-                                )),
+                    Title1Text(text: 'Hi, Mutiu'),
                     Text(
                       'Get your favorite food here',
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(
@@ -78,37 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ),
                 const Spacer(),
-                Stack(
-                  children: [
-                    IconButton(
-                        onPressed: () {}, icon: Icon(Icons.shopping_cart)),
-                    Positioned(
-                        top: 0,
-                        right: 0,
-                        child: Container(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: AppDimension.width6,
-                              vertical: AppDimension.height6),
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: AppColors.primary50,
-                          ),
-                          child: Center(
-                            child: Text(
-                              '1',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyLarge
-                                  ?.copyWith(
-                                      fontSize: AppDimension
-                                          .getProportionalScreenHeight(8),
-                                      fontWeight: FontWeight.w400,
-                                      color: Colors.white),
-                            ),
-                          ),
-                        ))
-                  ],
-                )
+                ShoppingCart()
               ],
             ),
           ),
@@ -128,6 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
               children: List.generate(
                 homePageMenu.length,
                 (index) => MainPageMenuTag(
+                    index: index,
                     icon: homePageMenu[index]["icon"]!,
                     text: homePageMenu[index]["text"]!),
               ),

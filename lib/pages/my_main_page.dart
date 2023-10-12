@@ -21,16 +21,6 @@ class _MyMainPageState extends State<MyMainPage> {
   ///list of all navigation
   final ListQueue<int> _navigationQueue = ListQueue();
 
-  //BottomNavBarItems
-  /*
-  List<Widget> bottomNavBarItem = [
-    const MyHomePage(),
-    const SearchPage(),
-    Container(color: Colors.red),
-    Container(color: Colors.blue),
-  ];
-   */
-
   @override
   void initState() {
     super.initState();

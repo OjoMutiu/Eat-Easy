@@ -2,13 +2,16 @@ import 'package:flutter/material.dart';
 
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_dimensions.dart';
+import '../../../models/tag_model.dart';
 
 class SearchTag extends StatelessWidget {
   const SearchTag({
     super.key,
-    required this.popularTag,
+    required this.searchTag,
+    required this.searchTagList,
   });
-  final String popularTag;
+  final AppTag searchTag;
+  final List<String> searchTagList;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,12 +23,19 @@ class SearchTag extends StatelessWidget {
           borderRadius: BorderRadius.circular(AppDimension.height20),
           color: AppColors.tagColorNeutral),
       child: Text(
-        popularTag,
+        searchTag.tagText,
         style: Theme.of(context).textTheme.bodySmall?.copyWith(
-              fontSize: AppDimension.height14,
+              fontSize: AppDimension.getProportionalScreenHeight(13),
               fontWeight: FontWeight.w400,
             ),
       ),
     );
+
+    //   Row(
+    //   children: [
+    //     , //todo: wrap with gesture detector
+    //     //Todo: add the close icon
+    //   ],
+    // );
   }
 }

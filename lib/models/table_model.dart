@@ -44,7 +44,7 @@ List<Map<String, dynamic>> tables = [
   {
     "id": 2,
     "tableType": "Family Table Extra",
-    "image": "assets/images/family_table2.jpg",
+    "image": "assets/images/family_table2.png",
     "price": 19,
     "noOfChair": 8
   },

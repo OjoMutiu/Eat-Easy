@@ -12,7 +12,7 @@ class SectionHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(
-          top: AppDimension.height24, bottom: AppDimension.height16),
+          top: AppDimension.height20, bottom: AppDimension.height16),
       child: Text(
         text,
         style: Theme.of(context).textTheme.titleMedium?.copyWith(
