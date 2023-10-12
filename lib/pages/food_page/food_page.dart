@@ -54,6 +54,7 @@ class _MyFoodPageState extends State<MyFoodPage> {
       ),
       body: SearchSystem(
         searchFieldDist: AppDimension.getProportionalScreenHeight(20),
+        searchResultDist: AppDimension.height20,
         childWidget: Column(
           children: [
             SizedBox(height: AppDimension.height20),

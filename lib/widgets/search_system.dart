@@ -18,7 +18,7 @@ class SearchSystem extends StatefulWidget {
   final String searchNotFoundText;
   final String searchText;
   final Widget? foodCard, tableCard;
-  final double? searchFieldDist;
+  final double? searchFieldDist, searchResultDist;
 
   const SearchSystem({
     super.key,
@@ -31,6 +31,7 @@ class SearchSystem extends StatefulWidget {
     this.tableSearchList,
     required this.searchNotFoundText,
     this.searchFieldDist,
+    this.searchResultDist,
   });
 
   @override
@@ -161,7 +162,9 @@ class _SearchSystemState extends State<SearchSystem> {
               ),
               if (showSearchResult)
                 Container(
-                  padding: EdgeInsets.symmetric(vertical: AppDimension.height8),
+                  padding: EdgeInsets.symmetric(
+                      vertical:
+                          widget.searchResultDist ?? AppDimension.height8),
                   child: Column(
                     children: [
                       if (widget.foodSearchList != null &&
