@@ -9,34 +9,33 @@ import '../../models/food_model.dart';
 import '../../widgets/search_not_found.dart';
 import '../models/table_model.dart';
 
-class SearchSystem extends StatefulWidget {
+class GeneralSearchSystem extends StatefulWidget {
   ///Variables
   final Widget childWidget;
-  final List<Map<String, dynamic>> searchList;
+  final List<Map<String, dynamic>> foodSearchList;
+  final List<Map<String, dynamic>> tableSearchList;
   final String? title;
   final String searchNotFoundText;
-  final String searchText, searchItem;
-  final Widget? searchTags;
+  final String searchText;
   final double? searchFieldDist, searchResultDist;
 
-  const SearchSystem({
+  const GeneralSearchSystem({
     super.key,
     required this.childWidget,
     this.title,
     required this.searchText,
-    required this.searchList,
+    required this.foodSearchList,
+    required this.tableSearchList,
     required this.searchNotFoundText,
     this.searchFieldDist,
     this.searchResultDist,
-    required this.searchItem,
-    this.searchTags,
   });
 
   @override
-  State<SearchSystem> createState() => _SearchSystemState();
+  State<GeneralSearchSystem> createState() => _GeneralSearchSystemState();
 }
 
-class _SearchSystemState extends State<SearchSystem> {
+class _GeneralSearchSystemState extends State<GeneralSearchSystem> {
   //Variables
   late final TextEditingController searchTextController;
   FocusNode searchFocusNode //;
@@ -107,27 +106,24 @@ class _SearchSystemState extends State<SearchSystem> {
                   onFieldSubmitted: (value) {
                     setState(() {
                       showSearchResult = true;
-                      if (widget.searchItem == 'food') {
-                        widget.searchList.clear();
-                        for (var element in foods) {
-                          if (element
-                              .toString()
-                              .trim()
-                              .toLowerCase()
-                              .contains(value.trim().toLowerCase())) {
-                            widget.searchList.add(element);
-                          }
+                      widget.foodSearchList.clear();
+                      widget.tableSearchList.clear();
+                      for (var element in foods) {
+                        if (element
+                            .toString()
+                            .trim()
+                            .toLowerCase()
+                            .contains(value.trim().toLowerCase())) {
+                          widget.foodSearchList.add(element);
                         }
-                      } else if (widget.searchItem == 'table') {
-                        widget.searchList.clear();
-                        for (var element in tables) {
-                          if (element
-                              .toString()
-                              .trim()
-                              .toLowerCase()
-                              .contains(value.trim().toLowerCase())) {
-                            widget.searchList.add(element);
-                          }
+                      }
+                      for (var element in tables) {
+                        if (element
+                            .toString()
+                            .trim()
+                            .toLowerCase()
+                            .contains(value.trim().toLowerCase())) {
+                          widget.tableSearchList.add(element);
                         }
                       }
                     });
@@ -154,7 +150,6 @@ class _SearchSystemState extends State<SearchSystem> {
                   },
                 ),
               ),
-              widget.searchTags != null ? widget.searchTags! : Container(),
               if (showSearchResult)
                 Container(
                   padding: EdgeInsets.symmetric(
@@ -162,18 +157,19 @@ class _SearchSystemState extends State<SearchSystem> {
                           widget.searchResultDist ?? AppDimension.height8),
                   child: Column(
                     children: [
-                      if (widget.searchItem == 'food') ...[
-                        if (widget.searchList.isNotEmpty) ...[
-                          FoodList(foodList: widget.searchList),
-                          //FoodSearchResult(searchList: widget.searchList),
-                        ] else
-                          SearchNotFound(actionText: widget.searchNotFoundText)
-                      ] else if (widget.searchItem == 'table') ...[
-                        if (widget.searchList.isNotEmpty) ...[
-                          TableList(tableList: widget.searchList),
-                        ] else
-                          SearchNotFound(actionText: widget.searchNotFoundText)
-                      ]
+                      if (widget.foodSearchList.isNotEmpty &&
+                          widget.tableSearchList.isNotEmpty) ...[
+                        FoodList(foodList: widget.foodSearchList),
+                        TableList(tableList: widget.tableSearchList),
+                        //FoodSearchResult(foodSearchList: widget.foodSearchList),
+                      ] else if (widget.foodSearchList.isNotEmpty &&
+                          widget.tableSearchList.isEmpty) ...[
+                        FoodList(foodList: widget.foodSearchList)
+                      ] else if (widget.foodSearchList.isEmpty &&
+                          widget.tableSearchList.isNotEmpty) ...[
+                        TableList(tableList: widget.tableSearchList)
+                      ] else
+                        SearchNotFound(actionText: widget.searchNotFoundText)
                     ],
                   ),
                 )

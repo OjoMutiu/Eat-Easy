@@ -1,6 +1,6 @@
 import 'package:eat_easy/constants/app_strings.dart';
 import 'package:eat_easy/models/package_model.dart';
-import 'package:eat_easy/widgets/search_system.dart';
+import 'package:eat_easy/widgets/general_search_system.dart';
 import 'package:eat_easy/pages/search_page/widgets/search_tag.dart';
 import 'package:eat_easy/pages/home_page/widgets/product_card.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +17,7 @@ class SearchPage extends StatelessWidget {
     List<Map<String, dynamic>> foodSearchList = [];
     List<Map<String, dynamic>> tableSearchList = [];
 
-    return SearchSystem(
+    return GeneralSearchSystem(
       title: AppString.search,
       childWidget: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
