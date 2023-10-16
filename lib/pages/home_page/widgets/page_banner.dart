@@ -1,3 +1,4 @@
+import 'package:eat_easy/widgets/title_2_text.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants/app_dimensions.dart';
@@ -196,13 +197,7 @@ class BannerPromo extends StatelessWidget {
   final String promoText;
   @override
   Widget build(BuildContext context) {
-    return Text(
-      promoText,
-      style: Theme.of(context).textTheme.titleMedium?.copyWith(
-          color: Colors.white,
-          fontSize: AppDimension.height20,
-          fontWeight: FontWeight.w600),
-    );
+    return Title2Text(text: promoText);
   }
 }
 

@@ -2,12 +2,15 @@ import 'package:eat_easy/constants/app_dimensions.dart';
 import 'package:eat_easy/constants/app_strings.dart';
 import 'package:eat_easy/pages/food_page/widgets/food_list.dart';
 import 'package:eat_easy/pages/table_page/widgets/table_list.dart';
+import 'package:eat_easy/widgets/section_header.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/app_colors.dart';
 import '../../models/food_model.dart';
 import '../../widgets/search_not_found.dart';
 import '../models/table_model.dart';
+import '../models/tag_model.dart';
+import '../pages/search_page/widgets/search_tag.dart';
 
 class GeneralSearchSystem extends StatefulWidget {
   ///Variables
@@ -151,27 +154,43 @@ class _GeneralSearchSystemState extends State<GeneralSearchSystem> {
                 ),
               ),
               if (showSearchResult)
-                Container(
-                  padding: EdgeInsets.symmetric(
-                      vertical:
-                          widget.searchResultDist ?? AppDimension.height8),
-                  child: Column(
-                    children: [
-                      if (widget.foodSearchList.isNotEmpty &&
-                          widget.tableSearchList.isNotEmpty) ...[
-                        FoodList(foodList: widget.foodSearchList),
-                        TableList(tableList: widget.tableSearchList),
-                        //FoodSearchResult(foodSearchList: widget.foodSearchList),
-                      ] else if (widget.foodSearchList.isNotEmpty &&
-                          widget.tableSearchList.isEmpty) ...[
-                        FoodList(foodList: widget.foodSearchList)
-                      ] else if (widget.foodSearchList.isEmpty &&
-                          widget.tableSearchList.isNotEmpty) ...[
-                        TableList(tableList: widget.tableSearchList)
-                      ] else
-                        SearchNotFound(actionText: widget.searchNotFoundText)
-                    ],
-                  ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SectionHeader(text: 'Popular Search'),
+                    Wrap(
+                      direction: Axis.horizontal,
+                      children: [
+                        ...List.generate(
+                            popularSearchTags.length,
+                            (index) => SearchTag(
+                                  searchTag:
+                                      AppTag(tagText: popularSearchTags[index]),
+                                  searchTagList: popularSearchTags,
+                                ))
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        if (widget.foodSearchList.isNotEmpty &&
+                            widget.tableSearchList.isNotEmpty) ...[
+                          FoodList(foodList: widget.foodSearchList),
+                          TableList(tableList: widget.tableSearchList),
+                          //FoodSearchResult(foodSearchList: widget.foodSearchList),
+                        ] else if (widget.foodSearchList.isNotEmpty &&
+                            widget.tableSearchList.isEmpty) ...[
+                          FoodList(foodList: widget.foodSearchList)
+                        ] else if (widget.foodSearchList.isEmpty &&
+                            widget.tableSearchList.isNotEmpty) ...[
+                          TableList(tableList: widget.tableSearchList)
+                        ] else
+                          SearchNotFound(
+                              height:
+                                  AppDimension.getProportionalScreenHeight(410),
+                              actionText: widget.searchNotFoundText)
+                      ],
+                    ),
+                  ],
                 )
               else
                 widget.childWidget,

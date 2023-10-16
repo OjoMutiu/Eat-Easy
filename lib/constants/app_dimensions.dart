@@ -29,6 +29,7 @@ class AppDimension {
   static final double width24 = screenWidth / 411 * 24;
   static final double width26 = screenWidth / 411 * 26;
   static final double width30 = screenWidth / 411 * 30;
+  static final double width40 = screenWidth / 411 * 40;
 
   //get proportional screenWidth
   static double getProportionalScreenWidth(double input) {

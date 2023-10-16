@@ -8,10 +8,10 @@ class SearchTag extends StatelessWidget {
   const SearchTag({
     super.key,
     required this.searchTag,
-    required this.searchTagList,
+    this.searchTagList,
   });
   final AppTag searchTag;
-  final List<String> searchTagList;
+  final List<String>? searchTagList;
   @override
   Widget build(BuildContext context) {
     return Container(

@@ -1,3 +1,4 @@
+import 'package:eat_easy/widgets/title_2_text.dart';
 import 'package:flutter/material.dart';
 
 import '../constants/app_dimensions.dart';
@@ -13,13 +14,7 @@ class SectionHeader extends StatelessWidget {
     return Container(
       padding: EdgeInsets.only(
           top: AppDimension.height20, bottom: AppDimension.height16),
-      child: Text(
-        text,
-        style: Theme.of(context).textTheme.titleMedium?.copyWith(
-              fontSize: AppDimension.height20,
-              fontWeight: FontWeight.w600,
-            ),
-      ),
+      child: Title2Text(text: text),
     );
   }
 }

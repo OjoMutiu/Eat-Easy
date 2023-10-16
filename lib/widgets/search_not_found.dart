@@ -8,13 +8,15 @@ class SearchNotFound extends StatelessWidget {
   const SearchNotFound({
     super.key,
     required this.actionText,
+    this.height,
   });
 
   final String actionText;
+  final double? height;
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: AppDimension.getProportionalScreenHeight(600),
+        height: height ?? AppDimension.getProportionalScreenHeight(520),
         padding: EdgeInsets.symmetric(horizontal: AppDimension.width20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

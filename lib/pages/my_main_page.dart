@@ -4,6 +4,7 @@ import 'package:eat_easy/constants/app_colors.dart';
 import 'package:eat_easy/constants/app_dimensions.dart';
 import 'package:eat_easy/constants/app_strings.dart';
 import 'package:eat_easy/pages/home_page/my_home_page.dart';
+import 'package:eat_easy/pages/profile_page/profile_page.dart';
 import 'package:eat_easy/pages/search_page/search_page.dart';
 import 'package:flutter/material.dart';
 
@@ -50,7 +51,7 @@ class _MyMainPageState extends State<MyMainPage> {
           const MyHomePage(),
           const SearchPage(),
           Container(color: Colors.red),
-          Container(color: Colors.blue),
+          const MyProfile(),
         ]),
         bottomNavigationBar: BottomNavigationBar(
           elevation: 10,
